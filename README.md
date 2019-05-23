@@ -68,6 +68,35 @@ To achieve high-quality variant calls, SPANDx incorporates the following program
 - SNPEff
 - VCFtools
 
+## SPANDx Nextflow
+
+SPANDx now includes a Nextflow implementation for dissemination on different cluster architectures and job submission systems. Code is tracked on the `Pathfinder` repository `pf-core/pf-spandx` and linked here. A configuration file can be provided or the default configuration under `pf-spandx/nextflow.config` can be modified to suit specific cluster environments or set convenient parameters for multiple runs with different default settings.
+
+**Example**
+
+Double dashes set parameters for the run, single dashes the Nextflow configurations. The `conda` environment will be installed on the first run, which may take some time. Alternatively, one can point the process conda tags to an existing path to the `pf-core/pf-spandx` environment.
+
+```
+nextflow pf-core/pf-spandx --outdir test_run/ --fastq pe_fastq/ -profile pbs -conda $HOME/conda/envs/pf-spandx
+```
+
+**Usage**
+
+Write the default config to file:
+
+```
+nextflow pf-core/pf-spandx --default_config ./nextflow.config
+```
+
+Parameters configurable from the command-line:
+
+```
+nextflow pf-core/pf-spandx
+
+
+
+```
+
 ## Usage
 
 ```bash
